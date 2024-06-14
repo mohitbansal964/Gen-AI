@@ -69,3 +69,9 @@ I am getting following error (delimited by backticks) when running cucumber. Ple
 ```Error [ERR_REQUIRE_ESM]: require() of ES Module .\node_modules\chai\chai.js from .\features\step_definitions\weatherSteps.js not supported.
 Instead change the require of chai.js in .\features\step_definitions\weatherSteps.js to a dynamic import() which is available in all 
 CommonJS modules.```
+
+# Prompt 15 - Performance testing
+Act as Quality Engineer, your task is to test the performance of this application. Create a performance testing script.
+You can assume JMeter is used as tool for testing and is already installed.
+You can set the thresholds based on industry standard.
+Try to be concise in your response.

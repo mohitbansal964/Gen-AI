@@ -1,0 +1,29 @@
+Model Used - GPT 4o
+https://chat.psnext.info/chat/9140a888-2e78-4f0b-8bab-77bbefb2aa31
+
+# Prompt 1 - Creating Springboot Webapp
+Act as a senior Java Developer, your task is to create a Spring Boot V3 Web Application. The application will serve weather data based on the city provided by the user.
+Follow the following instructions when create the webapp:
+1. Create mock files by city names and store weather information in them.
+2. API should read weather information from these mock files.
+3. Create Weather model containing relevant weather information.
+4. Create an API Response model with errorMessage, success and weather as properties. Success should be true when API is successful. Error Message should have error message when API fails. Store weather information in weather propery.
+5. If a city is not available in mock files, then return BadRequest with errorMessage as 'Weather of `city` is not available'. Replace `city` with city provided by the user.
+
+Provide full directory strucuture as well as code to generate this web application
+
+# Prompt 2 - Fixing Bug
+```Error creating bean with name 'weatherController': Unsatisfied dependency expressed through field 'weatherService': Error creating bean with name 'weatherService': Injection of autowired dependencies failed```` Getting this error when running application. Please suggest how to correct it.
+
+# Prompt 3 - Integrating Swagger 
+You need to integrate Swagger (OpenAPI) with this webapp. Mention all the steps required to integrate
+
+# Prompt 4 - Fixing Bug after integrating Swagger
+ApiResponse annotation and ApiResponse Model are colliding, causing an error in the application. Can you fix it please?
+
+# Prompt 5 - Generating Unit test cases
+Please generate unit test cases for the web application covering both positive and negative paths. 
+
+# Prompt 6 - Fix Test cases 
+testGetWeatherByCity_Success and testGetWeatherByCity_IOException of WeatherServiceTest are failing. Please check and correct
+

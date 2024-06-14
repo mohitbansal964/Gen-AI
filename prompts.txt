@@ -27,3 +27,29 @@ Please generate unit test cases for the web application covering both positive a
 # Prompt 6 - Fix Test cases 
 testGetWeatherByCity_Success and testGetWeatherByCity_IOException of WeatherServiceTest are failing. Please check and correct
 
+# Prompt 7 - Enable Cors
+Please enable CORS on the weather api
+
+# Prompt 8 - Create React app
+As a frontend developer, your task is to create a single page application using React. The application will show weather information based on cities. 
+Note following points when creating the webapp:
+1. Try to be creative with UI. You can use bootstrap for desgin, if required. Do provide all the steps to integrate bootstrap, if used.
+2. User will enter city and you need to show description of weather, temperature in celsius and humidity in percentage.
+3. Fetch weather information from previously creater weather api.
+4. UI should be responsive to different viewports, browsers and devices.
+5. Try to write mobile first css, if required.
+
+Provide full directory structure as well as code to create this webapp. Keep replies to the point.
+
+# Prompt 9 - Enhancing UI
+Please enhance UI. Consider following points:
+1. Create a spinner when API is loading.
+2. Handle errors using some custom design.
+
+Provide the delta code change only and keep replies to the point.
+
+# Prompt 10 - Unit test cases
+Please write unit test cases for the webapp.
+
+# Prompt 11 - Fixing test cases
+Getting this error when running test case - Cannot find module '@testing-library/jest-dom/extend-expect' from 'src/compo

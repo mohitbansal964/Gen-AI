@@ -53,3 +53,19 @@ Please write unit test cases for the webapp.
 
 # Prompt 11 - Fixing test cases
 Getting this error when running test case - Cannot find module '@testing-library/jest-dom/extend-expect' from 'src/compo
+
+# Prompt 12 - BDD
+As a Test Engineer, your task is to write BDD test cases for Weather Webapp and its REST API. 
+Write cucumber code as well to test. 
+Test cases should be written in such a way that non-technical persons can also understand. 
+It should be covering all the edge cases of the application. 
+Keep reply to the point
+
+# Prompt 13 - Install dependencies
+Please provide all the dependencies that are required to install to run cucumber test cases. Please also guide on how to install them
+
+# Prompt 14 - Fix error
+I am getting following error (delimited by backticks) when running cucumber. Please guide on how to fix.
+```Error [ERR_REQUIRE_ESM]: require() of ES Module .\node_modules\chai\chai.js from .\features\step_definitions\weatherSteps.js not supported.
+Instead change the require of chai.js in .\features\step_definitions\weatherSteps.js to a dynamic import() which is available in all 
+CommonJS modules.```

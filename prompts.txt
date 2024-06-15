@@ -78,3 +78,6 @@ Try to be concise in your response.
 
 # Prompt 16 - Docker file
 As Devops, your task is to create docker file for both Springboot and react application. Consider springboot v3 and react v18.
+
+# Prompt 17 - Kubernetes deployment file
+As Devops, your task is to create kubernetes deployment yaml file for both Springboot and react application. Also, write down the steps to deploy these applications on Azure.

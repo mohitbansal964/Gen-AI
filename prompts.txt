@@ -75,3 +75,6 @@ Act as Quality Engineer, your task is to test the performance of this applicatio
 You can assume JMeter is used as tool for testing and is already installed.
 You can set the thresholds based on industry standard.
 Try to be concise in your response.
+
+# Prompt 16 - Docker file
+As Devops, your task is to create docker file for both Springboot and react application. Consider springboot v3 and react v18.

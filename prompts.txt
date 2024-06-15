@@ -81,3 +81,12 @@ As Devops, your task is to create docker file for both Springboot and react appl
 
 # Prompt 17 - Kubernetes deployment file
 As Devops, your task is to create kubernetes deployment yaml file for both Springboot and react application. Also, write down the steps to deploy these applications on Azure.
+
+# Prompt 18 - High Level Design
+Act as senior application architect, your task is to create high level design of the above application. This document is going to be presented to client who is not from technological background.
+Provide the response in such a way that it can be easily copied to a Microsoft word document.
+
+# Prompt 19 - Low Level Design and UML Diagrams
+Act as senior application architect, your task is to create low level design of the above application. This document will be shared with team which is going to develop this application.
+Create all the relevant UML diagrams for this task.
+

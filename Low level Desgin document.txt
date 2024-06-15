@@ -1,0 +1,162 @@
+### Low-Level Design Document for Weather Application
+
+This document provides a detailed low-level design of the Weather Application, including relevant UML diagrams to guide the development team.
+
+#### 1. Introduction
+
+The Weather Application consists of a backend service built with Spring Boot and a frontend interface built with React. This document includes class diagrams, sequence diagrams, and deployment diagrams to provide a comprehensive understanding of the system's design.
+
+#### 2. Class Diagram
+
+The class diagram illustrates the structure of the backend service, including the main classes and their relationships.
+
+```mermaid
+classDiagram
+    class WeatherController {
+        +getWeather(city: String): WeatherResponse
+    }
+
+    class WeatherService {
+        +fetchWeather(city: String): WeatherResponse
+    }
+
+    class WeatherClient {
+        +getWeatherData(city: String): WeatherData
+    }
+
+    class WeatherResponse {
+        -temperature: double
+        -humidity: double
+        -description: String
+    }
+
+    class WeatherData {
+        -temp: double
+        -humidity: double
+        -weatherDescription: String
+    }
+
+    WeatherController --> WeatherService
+    WeatherService --> WeatherClient
+    WeatherClient --> WeatherData
+    WeatherService --> WeatherResponse
+```
+
+#### 3. Sequence Diagram
+
+The sequence diagram shows the interaction between the frontend and backend components when a user requests weather information.
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant ReactApp
+    participant WeatherController
+    participant WeatherService
+    participant WeatherClient
+    participant ExternalWeatherAPI
+
+    User->>ReactApp: Enter city name
+    ReactApp->>WeatherController: GET /weather?city={city}
+    WeatherController->>WeatherService: fetchWeather(city)
+    WeatherService->>WeatherClient: getWeatherData(city)
+    WeatherClient->>ExternalWeatherAPI: Request weather data
+    ExternalWeatherAPI-->>WeatherClient: Return weather data
+    WeatherClient-->>WeatherService: Return WeatherData
+    WeatherService-->>WeatherController: Return WeatherResponse
+    WeatherController-->>ReactApp: Return WeatherResponse
+    ReactApp-->>User: Display weather information
+```
+
+#### 4. Deployment Diagram
+
+The deployment diagram illustrates the physical deployment of the application components on Azure Kubernetes Service (AKS).
+
+```mermaid
+graph TD
+    subgraph User
+        A[Web Browser]
+    end
+
+    subgraph AKS Cluster
+        B[React Pod]
+        C[Spring Boot Pod]
+    end
+
+    subgraph External Services
+        D[External Weather API]
+    end
+
+    A -->|HTTP Request| B
+    B -->|API Request| C
+    C -->|Fetches Data| D
+    D -->|Returns Data| C
+    C -->|API Response| B
+    B -->|HTTP Response| A
+```
+
+#### 5. Component Diagram
+
+The component diagram shows the organization and dependencies of the software components.
+
+```mermaid
+classDiagram
+    class ReactApp {
+        +index.html
+        +App.js
+        +WeatherComponent.js
+        +WeatherService.js
+    }
+
+    class SpringBootApp {
+        +WeatherController.java
+        +WeatherService.java
+        +WeatherClient.java
+        +WeatherResponse.java
+        +WeatherData.java
+    }
+
+    ReactApp --> SpringBootApp
+    SpringBootApp --> ExternalWeatherAPI
+```
+
+#### 6. Detailed Class Descriptions
+
+1. **WeatherController**: Handles HTTP requests from the frontend and delegates the processing to the WeatherService.
+   - `getWeather(city: String): WeatherResponse`
+
+2. **WeatherService**: Contains the business logic to fetch weather data from the WeatherClient and transform it into a WeatherResponse.
+   - `fetchWeather(city: String): WeatherResponse`
+
+3. **WeatherClient**: Interacts with the external weather API to fetch raw weather data.
+   - `getWeatherData(city: String): WeatherData`
+
+4. **WeatherResponse**: Represents the structured response sent back to the frontend.
+   - `temperature: double`
+   - `humidity: double`
+   - `description: String`
+
+5. **WeatherData**: Represents the raw data fetched from the external weather API.
+   - `temp: double`
+   - `humidity: double`
+   - `weatherDescription: String`
+
+#### 7. API Endpoints
+
+1. **GET /weather?city={city}**: Fetches the current weather information for the specified city.
+   - **Request Parameters**: `city` (String) - The name of the city.
+   - **Response**: `WeatherResponse` - Contains temperature, humidity, and description.
+
+#### 8. Conclusion
+
+This low-level design document provides a detailed view of the Weather Application's architecture, including class diagrams, sequence diagrams, deployment diagrams, and component diagrams. These diagrams and descriptionsprovide a comprehensive understanding of the system's design and should guide the development team in implementing the application.
+
+#### 9. Additional Considerations
+
+1. **Error Handling**: Ensure that the application gracefully handles errors, such as network issues or invalid city names, and provides meaningful error messages to the user.
+2. **Security**: Implement security best practices, such as input validation, to prevent common vulnerabilities like SQL injection and cross-site scripting (XSS).
+3. **Testing**: Develop unit tests for the backend services and components, as well as end-to-end tests for the entire application to ensure reliability and correctness.
+4. **Logging and Monitoring**: Integrate logging and monitoring tools to track the application's performance and detect issues in real-time.
+
+#### 10. Summary
+
+This document outlines the low-level design of the Weather Application, providing detailed UML diagrams and descriptions of the system's components and interactions. By following this design, the development team can build a scalable, reliable, and user-friendly weather application.
